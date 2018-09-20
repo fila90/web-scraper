@@ -26,7 +26,11 @@ def _get_data(url):
 
 # save results to file, every entry on new line
 def _save_to_file(res):
-	os.remove('results.txt')
+	try:
+		os.remove('results.txt')
+	except Exception as e:
+		print(e)
+
 	with open('results.txt', 'a') as file:
 		for line in res:
 			file.write(line + '\n')
